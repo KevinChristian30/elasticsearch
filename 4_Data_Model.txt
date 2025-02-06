@@ -1,0 +1,29 @@
+4. Data Model
+
+Transitioning from a relational to Elasticsearch is not a simple as transforming a table to an index. In a relational database, we usually perform a database normalization. In Elasticsearch, we need to follow how the client searches data.
+
+Unlike a relational database, Elasticsearch allows insertion without prior schema definition. But, after a schema is formed, the data type of the schema can't be altered. This is different than other NoSQL databases like MongoDB.
+
+Primary Key
+===========
+
+In an Elasticsearch document, we need a primary key, that primary key is called _id. We are not allowed to arbitrarilly set the primary key or set composite keys. The _id field is a string.
+
+Schema
+======
+
+When creating an index schema in Elasticsearch, there are two point of views:
+    - Embedded document:
+        {
+            "_id": "1",
+            "address": {
+                "street": "this is an embedded document"
+            }
+        }
+    - Document reference
+        {
+            "_id": "1",
+            "address_id": "1"
+        }
+
+Use embedded document if there is a dependency between them. Use document reference if there is no strong dependency between the documents.
