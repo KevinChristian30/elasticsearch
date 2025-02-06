@@ -1,1 +1,5 @@
-Introduction
+1. Introduction
+
+Elasticsearch is a database management system that is based on REST API to create search engines. It is free, open source, and widely used in real world applications. Fun fact, it is written in Java.
+
+The core if elasticsearch is an information retrieval library called Apache Lucene. It is also made with Java. Every feature in elasticsearch ues Apache Lucene under the hood.

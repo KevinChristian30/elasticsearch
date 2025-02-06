@@ -1,0 +1,11 @@
+2. Terms
+
+The terms used on a relational database is different from elasticsearch, here are a few differences:
+
+Relational Database | Elasticsearch
+===================================
+Database            | (No Term for Database)
+Table               | Index
+Column              | Field / Attribute
+Row, Record         | Document (JSON)
+Join Table          | Embedded Document, Reference
