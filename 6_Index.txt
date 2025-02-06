@@ -1,0 +1,16 @@
+6. Index
+
+In Elasticsearch, there is no database, so an Elasticsearch node directly runs the indexes. One way of differentiating which index belongs to which app, we can prefix the index name with the application name.
+
+To create an index, we make an HTTP call to:
+PUT /[index name]
+
+An index name must be:
+    - Lowercase
+    - No special characters
+    - No more than 255 characters
+
+
+Create Index    -> PUT /[index name]
+Delete Index    -> DELETE /[index name]
+Get All Indices -> GET /_cat/indices?v
