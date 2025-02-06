@@ -1,0 +1,5 @@
+3. Configuration
+
+By default, there is a feature called X-Pack in Elasticsearch, this feature is created by Elastic and is not open source. So, let's disable it.
+
+To disable it, we need to open the Elasticsearch configuration file (config/elasticsearch.yml).
