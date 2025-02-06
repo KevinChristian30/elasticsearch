@@ -1,0 +1,34 @@
+5. Embedded Data type
+
+Elasticsearch supports many data types, when creating a document in Elasticsearch, we use JSON as a format. In JSON, we can embed data whether it is an array or another object. So, how does Elasticsearch handle embedded attributes?
+
+Because Elasticsearch uses Apache Lucene, Elasticsearch has to transform the JSON data into a Lucnee document. A Lucene document is a key value store (Map<String, List<T>>). Let's see an example.
+
+elasticsearch.json
+{
+    "_id: "12345",
+    "email": "kevin@gmail.com",
+    "hobbies": ["A", "B"],
+    "addresses": [
+        {
+            "street": "A street",
+            "city": "Jakarta",
+            "country": "Indonesia"
+        },
+        {
+            "street": "B street",
+            "city": "Bandung",
+            "country": "Indonesia"
+        },
+    ]
+}
+
+lucene.doc
+{
+    "_id: ["12345"],
+    "email": ["kevin@gmail.com"],
+    "hobbies": ["A", "B"],
+    "addresses.street": ["A street", "B street"],
+    "addresses.city": ["Jakarta", "Bandung"],
+    "addresses.country": ["Indonesia"],
+}
