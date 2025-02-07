@@ -1,0 +1,17 @@
+16. Alias
+
+In Elasticsearch, we can't change the schema once it is set, so if we want to make changes, we create a new index instead.
+
+Because of that, the client has to change the index name accordingly. Luckily, we have aliases.
+
+Create Alias -> POST /_aliases
+{
+    "actions": [
+        {
+            "add": {
+                "index": "orders",
+                "alias": "order"
+            }
+        }
+    ]
+}
