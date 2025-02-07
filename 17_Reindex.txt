@@ -1,0 +1,13 @@
+17. Reindex
+
+If we make a new index, the data is empty, a reindex is when we move data from one index to another.
+
+Reindex API -> POST /_reindex
+{
+    "source": {
+        "index": "orders_v1"
+    },
+    "dest": {
+        "index": "orders_v2"
+    }
+}
