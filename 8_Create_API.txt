@@ -1,0 +1,5 @@
+8. Create API
+
+To insert daata, we can use the create API.
+
+POST/PUT /[index_name]/_create/[id]
