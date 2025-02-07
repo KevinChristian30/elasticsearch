@@ -1,0 +1,3 @@
+14. Delete API
+
+Delete API -> DELETE /[index name]/_doc/[id]
