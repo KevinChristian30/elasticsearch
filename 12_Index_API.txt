@@ -1,0 +1,5 @@
+12. Index API
+
+To create or replace document, we can use the index API.
+
+POST/PUT /[index_name]/_doc/[id]
