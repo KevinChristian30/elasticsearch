@@ -1,0 +1,17 @@
+7. Dynamic Mapping
+
+When creating a table in a relational database, we create the structure first. In Elasticsearch, an index schema is called mapping. By default, mapping is done automatically, a process called dynamic mapping.
+
+But, it is recommended to create a manual or explicit mapping.
+
+JSON Data Type | Elasticsearch Data Type
+========================================
+null           | no field added
+true / false   | boolean
+double         | float
+long           | long
+array          | depends on the first element
+string         | date, float, long, text, depends on whether itcan be detected automatically
+
+Get Mapping    -> GET /[index name]/_mapping
+Update Mapping -> PUT /[index name]/_mapping (look at docs for body)
