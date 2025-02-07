@@ -1,0 +1,8 @@
+15. Bulk API
+
+We can do multiple operations in bulk using the Bulk API.
+
+Bulk API -> POST /_bulk
+Bulk API -> POST /[index name]/_bulk
+
+See documentation for request body
