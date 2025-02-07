@@ -1,0 +1,24 @@
+10. Multi Get API
+
+Get multiple documents at the same time.
+
+Multi Get -> POST /_mget
+                {
+                    "docs": [
+                        {
+                            "_id": "1",
+                            "_index": "customers"
+                        },
+                        {
+                            "_id": "2",
+                            "_index": "orders"
+                        }
+                    ]
+                }
+
+Multi Get -> POST /[index name]/_mget
+                {
+                    "ids": [
+                        "1"
+                    ]
+                }
