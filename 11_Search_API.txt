@@ -1,0 +1,8 @@
+11. Search API
+
+Get API is used to get a document, but what if we want to search for documents without the id? The solution is Search API.
+
+Search API -> POST /_search
+Search API -> POST /[index name]/_search
+Paginated  -> POST /[index name]/_search?from=0&size=1
+Sorting    -> POST /[index name]/_search?sort=price:asc
