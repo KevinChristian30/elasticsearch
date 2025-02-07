@@ -1,0 +1,5 @@
+9. Get API
+
+Get Document (With Metadata) -> GET /[index name]/_doc/[id]
+Get Source -> GET /[index name]/_source/[id]
+Check Exists -> HEAD /[index name]/[_source or _doc]/[id]
