@@ -1,0 +1,10 @@
+13. Update API
+
+Index API is a PUT approach for upserting, Update API is a PATCH approach of doing so.
+
+Update API -> POST /[index name]/_update/[id]
+{
+    "doc": {
+        "key": "new value"
+    }
+}
