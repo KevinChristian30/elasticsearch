@@ -1,0 +1,61 @@
+19. Mapping
+
+As a best practice, we need to map indexes manually to ensure wanted behavior.
+
+Get Mapping    -> GET /[index name]/_mapping
+Update Mapping -> PUT /[index name]/_mapping
+{
+    "properties": {
+        "username": {
+            "type": "text"
+        },
+        "name": {
+            "type": "text"
+        },
+        "email": {
+            "type": "keyword"
+        },
+        "gender": {
+            "type": "keyword"
+        },
+        "birth_date": {
+            "type": "date",
+            "format": "yyyy-MM-dd"
+        }
+    }
+}
+
+What if we want to map objects? To do that, we can nest the properties attribute like this
+{
+    "properties": {
+        "address": {
+            "properties": {
+                "street": {
+                    "type": "text"
+                },
+                "number": {
+                    "type": "keyword"
+                }
+            }
+        }
+    }
+}
+
+What if we want to map arrays? Because Apache Lucene will convert them to an array anyways, we just have to specify the type normally as if it is a normal attribute.
+{
+    "properties": {
+        "hobbies": {
+            "type": "text"
+        },
+        "banks": {
+            "properties": {
+                "street": {
+                    "type": "text"
+                },
+                "number": {
+                    "type": "keyword"
+                }
+            }
+        }
+    }
+}
