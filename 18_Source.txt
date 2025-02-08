@@ -1,0 +1,13 @@
+18. Source
+
+Elasticsearch stores data as an Apache Lucene document (key-value).
+But as we know it, Elasticsearch returns the response in a JSON format.
+
+Behind the scenes, Elasticsearch stores the JSON data directly in the lucene document (_source).
+So, don't be surprised if the required storage is huge.
+
+By default, Elasticsearch will return everything inside the _source attribute.
+But, we can include or exclude an attribute, so we can modify the response.
+
+Query Parameter: _source_includes
+Query Parameter: _source_excludes
