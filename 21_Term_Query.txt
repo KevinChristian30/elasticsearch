@@ -1,0 +1,23 @@
+21. Term Query
+
+Term query is a type of query to find an exact value, like username, product id, price, etc.
+Term query is not optimal for searching data with the type text.
+That is because text has a specific behaviour called "text analysis" that can make the data incorrect, like auto lowercasing, auto removing symbols, etc.
+
+POST /[index name]/_search
+{
+    "query": {
+        "term": {
+            "gender": "Female"
+        }
+    },
+    "size": 10,
+    "from": 0,
+    "sort":[
+        {
+            "username": {
+                "order": "desc"
+            }
+        }
+    ]
+}
