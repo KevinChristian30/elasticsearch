@@ -1,0 +1,28 @@
+20. Query
+
+In the Search API, we can throw in the query attribute to search better.
+
+By default, when we're using the search API without the query attribute, we're using match all.
+
+Search Using Match All -> POST /[index name]/_search
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+Pagination and Sorting -> POST /[index name]/_search
+{
+    "query": {
+        "match_all": {}
+    },
+    "size": 10,
+    "from": 0,
+    "sort": [
+        {
+            "username": {
+                "order": "desc
+            }
+        }
+    ]
+}
