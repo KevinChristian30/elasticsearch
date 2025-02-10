@@ -1,0 +1,40 @@
+27. Flattened Field
+
+By default, every field will be stored as a key in a lucene document.
+
+Elasticsearch has a data type called flattened, that is used as an alternative to store data in a lucene document. 
+It takes every value in a child field and store it in a key-value pair as a keyword.
+
+It is suitable for data types with dynamic field to reduce mapping.
+
+PUT /[index nam]/_mapping
+{
+    "properties": {
+        "labels": {
+            "type": "flattened"
+        }
+    }
+}
+
+POST /[index name]/customer/_update/[id]
+{
+    "doc": {
+        "labels": {
+            "priority": "vip",
+            "discount": "10% disount",
+            "complaint": "always complaint"
+        }
+    }
+}
+
+In lucene => ["vip", "10% discount", "always complaint"]
+
+POST /[index name]/customer/_update/[id]
+{
+    "doc": {
+        "labels": {
+            "priority": "regular",
+            "verified": "unverified"
+        }
+    }
+}
