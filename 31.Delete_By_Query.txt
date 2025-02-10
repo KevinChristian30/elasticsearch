@@ -1,0 +1,10 @@
+31. Delete By Query
+
+POST /[index name]/_delete_by_query
+{
+    "query": {
+        "match":{
+            "name": "a"
+        }
+    }
+}
