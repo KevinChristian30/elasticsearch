@@ -10,7 +10,10 @@ POST /[index name]/_search
 {
     "query": {
         "match": {
-            "gender": "Female"
+            "banks.name": {
+                "query": "bca digital",
+                "operator": "AND" // the default is OR
+            }
         }
     },
     "size": 10,
