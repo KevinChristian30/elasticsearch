@@ -1,0 +1,56 @@
+28. Nested Document
+
+Nested field is a data type that is used to store every object in an array to an independent document.
+
+This operation is expensive, so use it carefully.
+
+Because nested field is used by Elasticsearch by creating a hidden lucene document, we need to do a nested query to query a nested field.
+
+PUT /[index name]/_mapping
+{
+    "properties": {
+        "first_name": {
+            "type": "text"
+        },
+        "last_name": {
+            "type": "text"
+        },
+        "children": {
+            "type": "nested",
+            "properties": {
+                "first_name": {
+                    "type": "text"
+                },
+                "last_name": {
+                    "type": "text"
+                }
+            }
+        }
+    }
+}
+
+Do a nested query
+POST /[index name]/_search
+{
+    "query": {
+        "nested": {
+            "path": "children",
+            "query": {
+                "bool": {
+                    "must": [
+                        {
+                            "match": {
+                                "children.first_name": "Joko"
+                            }
+                        },
+                        {
+                            "match": {
+                                "children.last_name": "Morro"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
