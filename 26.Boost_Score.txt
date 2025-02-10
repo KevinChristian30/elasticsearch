@@ -1,0 +1,26 @@
+26. Boost Score
+
+By default, the boost of each query is 1, meaning every query has equal weight. We can modify the boost score if a particular query is more important than the other.
+
+POST /[index name]/_search
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "term": {
+                        "hobbies": {
+                            "value": "gaming",
+                            "boost": 1.2
+                        }
+                    }
+                },
+                {
+                    "term": {
+                        "banks.name": "bca"
+                    }
+                }
+            ]
+        }
+    }
+}
