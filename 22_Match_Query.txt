@@ -1,0 +1,27 @@
+22. Match Query
+
+Match query is very similar to term query, but match query will use the same text analysis as the searced attribute.
+
+So, for text data type, match query is more suitable as it will use the same text analysis.
+
+Match query can be used for all data types.
+
+POST /[index name]/_search
+{
+    "query": {
+        "match": {
+            "gender": "Female"
+        }
+    },
+    "size": 10,
+    "from": 0,
+    "sort":[
+        {
+            "username": {
+                "order": "desc"
+            }
+        }
+    ]
+}
+
+For text data type, Elasticsearch will use StandardAnalyzer, it is a tool to tokenize strings.
