@@ -1,0 +1,27 @@
+23. Terms Query
+
+Terms query is similar to IN query in sql.
+
+It won't use text analysis just like term query.
+
+POST /[index name]/_search
+{
+    "query": {
+        "terms": {
+            "username": [
+                "a",
+                "b",
+                "c"
+            ]
+        }
+    },
+    "size": 10,
+    "from": 0,
+    "sort":[
+        {
+            "username": {
+                "order": "desc"
+            }
+        }
+    ]
+}
