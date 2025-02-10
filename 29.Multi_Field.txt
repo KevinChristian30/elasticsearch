@@ -1,0 +1,22 @@
+29. Multi Field
+
+One of the features of Elasticsearch is multi field.
+Multi field is a feature whre we can create multiple field names out of one field.
+
+The added field can be of a different data type.
+
+For example, if we want to have a field "name" and we want to use both text and keyword, we can create multi field like "name" and "name_raw", but we need to make sure that both fields stay the same.
+
+PUT /[index name]/_mapping
+{
+    "properties": {
+        "name": {
+            "type": "text",
+            "fields": {
+                "raw": { // can be searched by name.raw
+                    "type": "keyword"
+                }
+            }
+        }
+    }
+}
