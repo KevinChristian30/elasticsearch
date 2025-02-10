@@ -1,0 +1,74 @@
+24. Boolean Query
+
+What if we want to search for multiple fields?
+
+Occur    | Description
+======================
+must     | Query must be shown in the result, contributes to score
+filter   | Query must be shown in the result, doesn't contribute to score
+must_not | Query can't bw shown in the result
+should   | Query can but not mandatory to be shown in the result set
+
+= gaming AND = bca
+POST /[index name]/_search
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "term": {
+                        "hobbies": "gaming"
+                    }
+                },
+                {
+                    "term": {
+                        "banks.name": "bca"
+                    }
+                }
+            ]
+        }
+    }
+}
+
+!= gaming AND != bca
+POST /[index name]/_search
+{
+    "query": {
+        "bool": {
+            "must_not": [
+                {
+                    "term": {
+                        "hobbies": "gaming"
+                    }
+                },
+                {
+                    "term": {
+                        "banks.name": "bca"
+                    }
+                }
+            ]
+        }
+    }
+}
+
+= gaming OR = bca
+POST /[index name]/_search
+{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "term": {
+                        "banks.name": "bni"
+                    }
+                },
+                {
+                    "term": {
+                        "banks.name": "bca"
+                    }
+                }
+            ],
+            "minimum_should_match": 1 // at least one should be fulfilled
+        }
+    }
+}
