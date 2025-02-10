@@ -1,0 +1,16 @@
+25. Score
+
+By default, everytime we make a query to Elasticsearch, the result of the query will be sorted based on score.
+
+Score is relevancy for search query that we send.
+
+The bigger the score, the more relevant the result is.
+
+The algorithm used is BM25.
+
+To know how a score is calculated, use the Explain API.
+
+POST /[index name]/_explain/[id]
+{
+    request body of query
+}
