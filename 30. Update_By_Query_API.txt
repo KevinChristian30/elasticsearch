@@ -1,0 +1,13 @@
+30. Update by Query API
+
+When we add a new mapping like a new multi field to an index with data in it, the data in the newly created multifield is not available, we need to do a reindex.
+
+Luckily, there is a away to update the lucene document with the new mapping.
+
+POST /[index name]/_update_by_query
+{
+    "query": {
+        "match_all":{
+        }
+    }
+}
