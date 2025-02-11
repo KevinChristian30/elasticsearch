@@ -1,0 +1,6 @@
+More advanced Elasticsearch Topics:
+- Query DSL
+- Text Analysis
+- Geospatial
+- Aggregation
+- Scalability
