@@ -1,0 +1,7 @@
+33. CAT API
+
+Compact and Aligned Text APIs are APIs that are made to view information in Elasticsearch.
+
+Information like health, indexes, shards, nodes, etc.
+
+View the documentation for more info.
