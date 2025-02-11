@@ -1,0 +1,35 @@
+34. Snapshot
+
+Snapshot is a backup to an Elasticsearch cluster, every data will be backed.
+
+A Repository is a place where snapshots are stored.
+
+Elasticsearch supports many types of repositories, like AWS S2, GCP Storage, Azure Storage, etc. 
+
+To create a repository, we need to modify the Elasticsearch configuration and restart Elasticsearch.
+
+```
+elasticsearch.yml
+
+path.repo: {backup file path}
+```
+
+Create Repository -> PUT /_snapshot/[repository name]
+Delete Repository   -> DELETE /_snapshot/[repository name]
+
+Create Snapshot   -> PUT /_snapshot/[repository name]/[snapshot name]
+{
+    "indices": []
+}
+
+Restore Snapshot  -> POST /_snapshot/[repository name]/[snapshot name]/_restore
+Delete Snapshot   -> DELETE /_snapshot/[repository name]/[snapshot name]
+
+Before restoring, we need to close the index to prevent read and write operations.
+
+We can use the Open and Close APIs.
+
+Close Index       -> POST /[index name]/_close
+Open Index        -> POST /[index name]/_open
+
+
