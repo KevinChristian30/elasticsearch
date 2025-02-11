@@ -1,0 +1,35 @@
+32. Search After
+
+By default, Elasticsearch limits pagination to 10,000 results.
+
+It is because in a distributed system, there is a Deep Paging Problem.
+
+Usually, there is more than one Elasticsearch node in a cluster.
+
+When we search, Elasticsearch has to query from all nodes, and paginate the results, it is very expensive.
+
+Instead of LIMIT OFFSET pagination, we can use Scroll API.
+
+But, using Search API is no longer recommended because it stores the data in memory for longer than needed.
+
+Instead, use Search After.
+
+POST /[index name]/_search
+{
+    "size": 100,
+    "from": 0, // always search the first page
+    "query": {
+        "match_all": {
+        }
+    },
+    "sort": [
+        {
+            "id": {
+                "order": "asc"
+            }
+        }
+    ],
+    "search_after": [
+        "10086" // get from the last response
+    ]
+}
